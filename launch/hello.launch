@@ -1,0 +1,10 @@
+<launch>
+  <arg name="PubNode" value="pub_node"/>
+  <arg name="SubNode" value="sub_node"/>
+  <arg name="GreeterHz" value="30"/>
+  <arg name="GreeterName" value="Hodor"/>
+  <param name="$(arg PubNode)/greeter_hz" type="int" value="$(arg GreeterHz)"/>
+  <param name="$(arg PubNode)/greeter_name" type="string" value="$(arg GreeterName)"/>
+  <node name="$(arg PubNode)" pkg="hello" type="hello_node"/>
+  <node name="$(arg SubNode)" pkg="hello" type="listen_node"/>
+</launch>
